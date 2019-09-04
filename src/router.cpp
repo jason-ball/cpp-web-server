@@ -17,6 +17,7 @@
 #include "../include/router.h"
 #include <iostream>
 #include <unistd.h>
+#include <string>
 
 const char *TEST_MESSAGE = "HTTP/1.1 200 OK\r\n" \
                            "Content-Type: text/plain\r\n" \
