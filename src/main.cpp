@@ -20,9 +20,12 @@
 #include <iostream>
 #include <unistd.h>
 #include <string.h>
+#include <csignal>
+
+void sig_int_handler(int number);
 
 const uint16_t PORT = 8080u;
-const int SERVER_RUNNING = 1;
+int SERVER_RUNNING = 1;
 const unsigned int MAX_CONNECTIONS = 10;
 const unsigned int BUFFER_SIZE = 30000;
 const char *TEST_MESSAGE = "HTTP/1.1 200 OK\r\n" \
@@ -30,10 +33,11 @@ const char *TEST_MESSAGE = "HTTP/1.1 200 OK\r\n" \
                            "Content-Length: 12\r\n" \
                            "\r\n" \
                            "Hello World!";
+int server_fd, new_socket;
 
 int main()
 {
-    int server_fd, new_socket;
+    signal(SIGINT, sig_int_handler);
     struct sockaddr_in address{};
     size_t addr_len;
 
@@ -80,4 +84,12 @@ int main()
 
 
     return 0;
+}
+
+void sig_int_handler(int number)
+{
+    std::cout << "\nShutting down server..." << std::endl;
+    SERVER_RUNNING = 0;
+    close(server_fd);
+    exit(number);
 }
