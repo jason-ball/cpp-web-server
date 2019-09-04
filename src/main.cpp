@@ -19,6 +19,8 @@
 #include <netinet/in.h>
 #include <iostream>
 #include <unistd.h>
+#include <string.h>
+
 const uint16_t PORT = 8080u;
 const int SERVER_RUNNING = 1;
 const unsigned int MAX_CONNECTIONS = 10;
