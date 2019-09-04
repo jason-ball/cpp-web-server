@@ -18,6 +18,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <string>
+#include <string.h>
 
 const char *TEST_MESSAGE = "HTTP/1.1 200 OK\r\n" \
                            "Content-Type: text/plain\r\n" \
