@@ -30,11 +30,6 @@ const uint16_t PORT = 8080u;
 int SERVER_RUNNING = 1;
 const unsigned int MAX_CONNECTIONS = 10;
 const unsigned int BUFFER_SIZE = 30000;
-const char *TEST_MESSAGE = "HTTP/1.1 200 OK\r\n" \
-                           "Content-Type: text/plain\r\n" \
-                           "Content-Length: 12\r\n" \
-                           "\r\n" \
-                           "Hello World!";
 int server_fd, new_socket;
 
 int main()
@@ -81,9 +76,8 @@ int main()
         char buffer[BUFFER_SIZE] = {0};
         read(new_socket, buffer, BUFFER_SIZE);
         std::string request {buffer};
-        router.submit(request);
+        router.submit(request, new_socket);
         std::cout << "-------BEGIN HTTP REQUEST-------" << std::endl << buffer << std::endl << "--------END HTTP REQUEST--------" << std::endl;
-        write(new_socket, TEST_MESSAGE, strlen(TEST_MESSAGE));
         close(new_socket);
     }
 
