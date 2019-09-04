@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="cpp-web-server"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/jason/Documents/HelloWorld/C++/cpp-web-server"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/jason/Documents/HelloWorld/C++/cpp-web-server"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/jason/Documents/HelloWorld/C++/cpp-web-server"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cpp-web-server">
+				<Option output="/Users/jason/Documents/HelloWorld/C++/cpp-web-server/bin/cpp-web-server" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jason/Documents/HelloWorld/C++/cpp-web-server/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 cpp-web-server"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cpp-web-server/fast">
+				<Option output="/Users/jason/Documents/HelloWorld/C++/cpp-web-server/bin/cpp-web-server" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jason/Documents/HelloWorld/C++/cpp-web-server/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 cpp-web-server/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/jason/Documents/HelloWorld/C++/cpp-web-server/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/jason/Documents/HelloWorld/C++/cpp-web-server/src/main.cpp">
+			<Option target="cpp-web-server"/>
+		</Unit>
+		<Unit filename="/Users/jason/Documents/HelloWorld/C++/cpp-web-server/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
