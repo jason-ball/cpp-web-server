@@ -22,6 +22,8 @@
 #include <string.h>
 #include <csignal>
 
+#include "../include/router.h"
+
 void sig_int_handler(int number);
 
 const uint16_t PORT = 8080u;
@@ -40,6 +42,7 @@ int main()
     signal(SIGINT, sig_int_handler);
     struct sockaddr_in address{};
     size_t addr_len;
+    Router router;
 
     if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
     {
@@ -77,6 +80,8 @@ int main()
 
         char buffer[BUFFER_SIZE] = {0};
         read(new_socket, buffer, BUFFER_SIZE);
+        std::string request {buffer};
+        router.submit(request);
         std::cout << "-------BEGIN HTTP REQUEST-------" << std::endl << buffer << std::endl << "--------END HTTP REQUEST--------" << std::endl;
         write(new_socket, TEST_MESSAGE, strlen(TEST_MESSAGE));
         close(new_socket);
