@@ -21,7 +21,7 @@
 
 class Router {
     public:
-        void submit(std::string &request);
+        void submit(std::string &request, int &socket);
 };
 
 #endif
