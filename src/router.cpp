@@ -20,15 +20,15 @@
 #include <string>
 #include <string.h>
 
-const char *TEST_MESSAGE = "HTTP/1.1 200 OK\r\n" \
-                           "Content-Type: text/plain\r\n" \
-                           "Content-Length: 12\r\n" \
-                           "\r\n" \
+const char *TEST_MESSAGE = "HTTP/1.1 200 OK\r\n"
+                           "Content-Type: text/plain\r\n"
+                           "Content-Length: 12\r\n"
+                           "\r\n"
                            "Hello World!";
 
 void Router::submit(std::string &request, int &socket)
 {
-    std::string first_line = request.substr(0 , request.find("\r\n"));
+    std::string first_line = request.substr(0, request.find("\r\n"));
     std::string method = first_line.substr(0, request.find(" "));
     std::string path = first_line.substr(first_line.find(" ") + 2, first_line.rfind("HTTP/1.1") - 6);
 
@@ -36,7 +36,9 @@ void Router::submit(std::string &request, int &socket)
     {
         std::string message = "HTTP/1.1 404 NOT FOUND\r\nContent-Type: text/plain\r\nContent-Length: 23\r\n\r\nMethod not supported!\r\n";
         write(socket, message.c_str(), message.length());
-    } else {
+    }
+    else
+    {
         write(socket, TEST_MESSAGE, strlen(TEST_MESSAGE));
     }
     
