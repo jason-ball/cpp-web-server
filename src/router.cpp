@@ -68,6 +68,7 @@ void Router::serve(std::string &path, int &socket)
         std::string message = "HTTP/1.1 404 NOT FOUND\r\nContent-Type: text/html\r\nContent-Length: 30\r\n\r\n<h1>404: Page Not Found</h1>\r\n";
         write(socket, message.c_str(), message.length());
     }
+    file.close();
 }
 
 std::ostringstream Router::generate_header(unsigned int size)
