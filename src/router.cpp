@@ -22,13 +22,6 @@
 #include <fstream>
 #include <sstream>
 
-const char *TEST_MESSAGE = "HTTP/1.1 200 OK\r\n"
-                           "Content-Type: text/plain\r\n"
-                           "Content-Length: 12\r\n"
-                           "\r\n"
-                           "Hello World!";
-
-
 void Router::submit(std::string &request, int &socket)
 {
     std::string first_line = request.substr(0, request.find("\r\n"));
@@ -47,7 +40,6 @@ void Router::submit(std::string &request, int &socket)
     }
     else
     {
-        // write(socket, TEST_MESSAGE, strlen(TEST_MESSAGE));
         serve(path, socket);
     }
 }
@@ -67,7 +59,6 @@ void Router::serve(std::string &path, int &socket)
             std::getline(file, current_line);
             file_size += current_line.length();
             content << current_line;
-            std::cout << current_line << std::endl;
         }
         std::ostringstream response = generate_header(file_size);
         response << content.str();
