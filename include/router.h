@@ -22,6 +22,7 @@
 class Router {
     public:
         void submit(std::string &request, int &socket);
+        void serve(std::string &path, int &socket);
 };
 
 #endif
