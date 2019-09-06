@@ -19,6 +19,8 @@
 #include <unistd.h>
 #include <string>
 #include <string.h>
+#include <fstream>
+#include <sstream>
 
 const char *TEST_MESSAGE = "HTTP/1.1 200 OK\r\n"
                            "Content-Type: text/plain\r\n"
@@ -26,11 +28,17 @@ const char *TEST_MESSAGE = "HTTP/1.1 200 OK\r\n"
                            "\r\n"
                            "Hello World!";
 
+
 void Router::submit(std::string &request, int &socket)
 {
     std::string first_line = request.substr(0, request.find("\r\n"));
     std::string method = first_line.substr(0, request.find(" "));
     std::string path = first_line.substr(first_line.find(" ") + 2, first_line.rfind("HTTP/1.1") - 6);
+
+    if (path == "")
+    {
+        path = "index.html";
+    }
 
     if (method != "GET")
     {
@@ -39,7 +47,44 @@ void Router::submit(std::string &request, int &socket)
     }
     else
     {
-        write(socket, TEST_MESSAGE, strlen(TEST_MESSAGE));
+        // write(socket, TEST_MESSAGE, strlen(TEST_MESSAGE));
+        serve(path, socket);
     }
-    
+}
+
+void Router::serve(std::string &path, int &socket)
+{
+    std::ifstream file;
+    std::string current_line;
+    std::ostringstream content;
+    unsigned int file_size;
+
+    file.open("./content/" + path);
+    if (file.is_open())
+    {
+        while (!file.eof())
+        {
+            std::getline(file, current_line);
+            file_size += current_line.length();
+            content << current_line;
+            std::cout << current_line << std::endl;
+        }
+        std::ostringstream response = generate_header(file_size);
+        response << content.str();
+        write(socket, response.str().c_str(), response.str().length());
+    } else {
+        std::cerr << "Could not find file" << std::endl;
+        std::string message = "HTTP/1.1 404 NOT FOUND\r\nContent-Type: text/html\r\nContent-Length: 30\r\n\r\n<h1>404: Page Not Found</h1>\r\n";
+        write(socket, message.c_str(), message.length());
+    }
+}
+
+std::ostringstream Router::generate_header(unsigned int size)
+{
+    std::ostringstream header;
+    header << "HTTP/1.1 200 OK\r\n";
+    header << "Content-Type: text/html\r\n";
+    header << "Content-Length: " << size << "\r\n";
+    header << "\r\n";
+    return header;
 }
