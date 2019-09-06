@@ -22,7 +22,9 @@
 class Router {
     public:
         void submit(std::string &request, int &socket);
+    private:
         void serve(std::string &path, int &socket);
+        void generate_header(unsigned int size);
 };
 
 #endif
